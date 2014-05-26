@@ -141,7 +141,7 @@
 				
 				<!-- Регистрирај се -->
 		        
-                    <li><asp:HyperLink ID="registriranLink" runat="server">Регистрирај се</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="registriranLink" runat="server" NavigateUrl="~/register.aspx">Регистрирај се</asp:HyperLink></li>
 				
 				
 				 <!-- Кошничка -->

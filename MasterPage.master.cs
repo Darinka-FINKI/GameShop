@@ -17,19 +17,24 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void loginBtn_Click(object sender, EventArgs e)
     {
+        SqlConnection konekcija = new SqlConnection();
 
         String usernameValue = username.Text;
         String passwordValue = password.Text;
 
-        SqlConnection konek = new SqlConnection("Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True");
+        //darinka
+        konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
+
+        //marta        
+        //konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
 
         String q = "select * from users";
 
-        SqlCommand komanda = new SqlCommand(q, konek);
+        SqlCommand komanda = new SqlCommand(q, konekcija);
 
         try
         {
-            konek.Open();
+            konekcija.Open();
 
             SqlDataReader reader = komanda.ExecuteReader();
 
@@ -72,7 +77,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         finally
         {
-            konek.Close();
+            konekcija.Close();
         }
     }
 
