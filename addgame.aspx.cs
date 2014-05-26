@@ -23,7 +23,6 @@ public partial class addgame : System.Web.UI.Page
     }
     protected void ReadPic(string name)
     {
-        //upolad na slika i dodavanje na imeto vo bazata
         SqlConnection konekcija = new SqlConnection();
         konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
         SqlCommand komanda = new SqlCommand();
