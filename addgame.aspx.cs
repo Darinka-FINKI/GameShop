@@ -15,16 +15,16 @@ public partial class addgame : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-
-
-
-
-
     }
+
     protected void ReadPic(string name)
     {
         SqlConnection konekcija = new SqlConnection();
         konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
+
+        //marta
+        //konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
+
         SqlCommand komanda = new SqlCommand();
         komanda.Connection = konekcija;
         komanda.CommandText = "Select pic_location from game where name=@name";
@@ -49,20 +49,24 @@ public partial class addgame : System.Web.UI.Page
             konekcija.Close();
         }
 
-
-
-
     }
+
+
     protected void btnRegister_Click(object sender, EventArgs e)
     {
         SqlConnection konekcija = new SqlConnection();
         konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
+
+        //marta
+        //konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
+
+
         SqlCommand komanda = new SqlCommand();
         komanda.Connection = konekcija;
         komanda.CommandText = "INSERT INTO game(name,pic_location,game_type,description,price,num_avail) VALUES (@fn,@ln,@un,@em,@ps,@e) ";
         komanda.Parameters.AddWithValue("@fn", txtName.Text);
         string filename = lblPicName.Text;
-        string path = Server.MapPath("~/") + filename;
+        string path = Server.MapPath("~/img/") + filename;
         komanda.Parameters.AddWithValue("@ln", path);
         komanda.Parameters.AddWithValue("@un", txtUserName.Text);
         komanda.Parameters.AddWithValue("@ps", txtPassword.Text);
@@ -103,7 +107,7 @@ public partial class addgame : System.Web.UI.Page
                     if (FileUploadControl.PostedFile.ContentLength < 1002400)
                     {
                         string filename = Path.GetFileName(FileUploadControl.FileName);
-                        FileUploadControl.SaveAs(Server.MapPath("~/") + filename);
+                        FileUploadControl.SaveAs(Server.MapPath("~/img/") + filename);
 
                         StatusLabel.Text = "Upload status: File uploaded! ";
                         lblPicName.Text = FileUploadControl.FileName;

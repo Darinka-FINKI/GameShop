@@ -14,9 +14,16 @@ public partial class register : System.Web.UI.Page
 
     }
     protected void btnRegister_Click(object sender, EventArgs e)
-    {
+    {        
         SqlConnection konekcija = new SqlConnection();
-        konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
+        
+        //darinka
+        //konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
+
+        //marta
+        konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
+
+
         SqlCommand komanda = new SqlCommand();
         komanda.Connection = konekcija;
         komanda.CommandText = "INSERT INTO users(first_name,last_name,username, email, password1, game_type) VALUES (@fn,@ln,@un,@em,@ps,@gt) ";
@@ -26,7 +33,6 @@ public partial class register : System.Web.UI.Page
         komanda.Parameters.AddWithValue("@ps", txtPassword.Text);
         komanda.Parameters.AddWithValue("@em", txtEmail.Text);
         komanda.Parameters.AddWithValue("@gt", txtType.Text);
-
 
         int ef = 0; ;
         try
@@ -45,7 +51,15 @@ public partial class register : System.Web.UI.Page
 
         if (ef != 0)
         {
-            lblPoraka.Text = "Успешно се најавивте!";
+            lblPoraka.Text = "Успешно се регистриравте";
+            txtConfirm.Text = "";
+            txtEmail.Text = "";
+            txtLastName.Text = "";
+            txtName.Text = "";
+            txtPassword.Text = "";
+            txtType.Text = "";
+            txtUserName.Text = "";
         }
+         
     }
 }
