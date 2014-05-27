@@ -23,10 +23,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         String passwordValue = password.Text;
 
         //darinka
-        konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
+        //konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
 
         //marta        
-        //konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
+        konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
 
         String q = "select * from users";
 
