@@ -2,9 +2,20 @@
     CodeFile="addgame.aspx.cs" Inherits="addgame" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="head">
+<<<<<<< HEAD
 </asp:Content>
 
 
+=======
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#ContentPlaceHolder1_FileUploadControl').bootstrapFileInput();
+        });
+
+    </script>
+</asp:Content>
+>>>>>>> 8e4808d977d0ea21cd131dc474bdf5f2788d8bd8
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="container">
         <div class="row">
@@ -13,13 +24,17 @@
                 <h2>
                     Внес на нова игра<small> во база на податоци</small></h2>
                 <hr class="colorgraph">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8e4808d977d0ea21cd131dc474bdf5f2788d8bd8
                 <div class="form-group">
                     <asp:TextBox ID="txtName" class="form-control input-lg" placeholder="име на играта"
                         TabIndex="1" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName"
                         Display="None" ErrorMessage="Внесете име играта!"></asp:RequiredFieldValidator>
                 </div>
+<<<<<<< HEAD
 
 
                 <div class="form-group">
@@ -30,12 +45,21 @@
                 </div>
 
 
+=======
+                <div class="form-group">
+                    <asp:TextBox ID="txtEmail" class="form-control input-lg" runat="server" placeholder="опис на играта"
+                        TabIndex="2" TextMode="MultiLine"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtEmail"
+                        Display="None" ErrorMessage="Внесете опис!"></asp:RequiredFieldValidator>
+                </div>
+>>>>>>> 8e4808d977d0ea21cd131dc474bdf5f2788d8bd8
                 <div class="form-group">
                     <asp:TextBox ID="txtPassword" class="form-control input-lg" placeholder="цена на играта"
                         TabIndex="3" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtPassword"
                         Display="None" ErrorMessage="Внесете цена!"></asp:RequiredFieldValidator>
                 </div>
+<<<<<<< HEAD
 
 
                 <div class="form-group">
@@ -56,25 +80,55 @@
 
                 <!--todo apply css -->
 
+=======
+                <div class="form-group">
+                    <asp:TextBox ID="txtUserName" class="form-control input-lg" placeholder="тип на игра"
+                        TabIndex="4" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtUserName"
+                        Display="None" ErrorMessage="Внесете тип на игра!"></asp:RequiredFieldValidator>
+                </div>
+                <div class="form-group">
+                    <asp:TextBox ID="txtConfirm" class="form-control input-lg" placeholder="залиха на игра"
+                        TabIndex="5" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtConfirm"
+                        Display="None" ErrorMessage="Внесете залиха!"></asp:RequiredFieldValidator>
+                </div>
+>>>>>>> 8e4808d977d0ea21cd131dc474bdf5f2788d8bd8
                 <div class="form-group">
                     <h2>
                         <small>прикачи слика од играта</small></h2>
                     <asp:FileUpload ID="FileUploadControl" runat="server" />
+<<<<<<< HEAD
                     <asp:Button runat="server" ID="UploadButton" Text="Аплоадирај!" OnClick="UploadButton_Click" />
                     <br />
                     <br />
                     <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " />
+=======
+                    <asp:Button runat="server" class="btn btn-primary btn-sm" ID="UploadButton" Text="Аплоадирај!"
+                        OnClick="UploadButton_Click" />
+                    <br />
+                    <br />
+                    <asp:Label runat="server" ID="StatusLabel" Text="Статус на upload: " /></br>
+>>>>>>> 8e4808d977d0ea21cd131dc474bdf5f2788d8bd8
                     <asp:Label ID="lblPicName" runat="server"></asp:Label>
                     <asp:Image ID="Image1" runat="server" />
                 </div>
 
+<<<<<<< HEAD
                 <!-- todo check backend -->
 
+=======
+
+                <!-- todo check backend -->
+
+
+>>>>>>> 8e4808d977d0ea21cd131dc474bdf5f2788d8bd8
                 <hr class="colorgraph">
                 <div class="row">
                     <div class="col-xs-6 col-md-6">
                         <asp:Label ID="lblPoraka" runat="server"></asp:Label>
                         <asp:Button ID="btnRegister" class="btn btn-primary btn-block btn-lg" TabIndex="6"
+<<<<<<< HEAD
                             runat="server" OnClick="btnRegister_Click" Text="Додај игра!" style="margin-bottom: 20px;" />
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red"
                             style="margin-bottom: 50px;" DisplayMode="List" />
@@ -82,6 +136,13 @@
                 </div>
 
 
+=======
+                            runat="server" OnClick="btnRegister_Click" Text="Додај игра!" Style="margin-bottom: 20px;" />
+                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" Style="margin-bottom: 50px;"
+                            DisplayMode="List" />
+                    </div>
+                </div>
+>>>>>>> 8e4808d977d0ea21cd131dc474bdf5f2788d8bd8
                 </form>
             </div>
         </div>

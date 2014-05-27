@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="register.aspx.cs" Inherits="register" %>
+=======
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master"
     CodeFile="register.aspx.cs" Inherits="register" %>
+>>>>>>> 6dda4124f9048fd6ef304fd692e344294e999be3
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="head">
 </asp:Content>
