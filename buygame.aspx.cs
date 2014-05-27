@@ -11,4 +11,16 @@ public partial class buygame : System.Web.UI.Page
     {
 
     }
+    protected void btnBuy_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnCont_Click(object sender, EventArgs e)
+    {
+
+    }
 }
