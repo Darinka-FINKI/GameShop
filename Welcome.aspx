@@ -78,7 +78,8 @@
                         <p><%= game.description %></p>
                       <!--  <p> -->
 						<!-- /да се додаде во кошничка на клик -->
-                        <asp:Button runat="server" OnClick="" id="btn" class="btn btn-primary" Text="Купи"></asp:Button>  
+                        <asp:Button runat="server" id="btn" 
+                        class="btn btn-primary" Text="Купи"></asp:Button>  
                           <!--  </p> -->
                         </div>
                     </div>
