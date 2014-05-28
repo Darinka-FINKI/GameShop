@@ -150,7 +150,7 @@
 		        
 		        <!-- Одјави се -->		
                 
-                    <li><asp:HyperLink ID="logoutLink" runat="server">Одјави се</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="logoutLink" NavigateUrl="~/logout.aspx" runat="server">Одјави се</asp:HyperLink></li>
 
 
 				<!-- најава --> 
@@ -174,7 +174,7 @@
 
 								<label class="string optional" for="user_remember_me">Запомни ме </label>
 	
-                                <asp:Button ID="loginBtn" runat="server" class="btn btn-primary btn-block" onclick="loginBtn_Click"
+                                <asp:Button ID="loginBtn" CausesValidation="false" runat="server" class="btn btn-primary btn-block" onclick="loginBtn_Click"
                                 style="margin-bottom: 15px;" Text="најави се" />
 
                                 <asp:Label ID="lblGreska" Visible="false" runat="server" Text="Label"></asp:Label>
