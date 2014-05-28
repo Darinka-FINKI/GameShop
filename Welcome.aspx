@@ -4,7 +4,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="head"></asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
   
-    <div class="container">
+    <div class="container" id="cont" runat="server">
     
 		<!-- treba da prikaze sliki od foldero sliki -- > golemite sliki za carousel sa imenuvani sa sos L na kraj -->
 	
@@ -51,49 +51,13 @@
 		    <span class="glyphicon glyphicon-chevron-right"></span>
 		  </a>
 		  
-		</div>   	
+		</div>  
+        
+        <br/> 	
     	
 
 		<!-- /carousel -->
 		
-		
-		
-		<!-- тове див е за секоја игра посебно да се прикаже -->
-		
-		<!-- на клик на копчето Купи да се додаде фоф сесија играта -->
-		
-        <hr>
-        	 <% foreach (var game in Games) { %>
-              
-            <div class="col-lg-3 col-md-6 hero-feature">
-        		<div class="thumbnail" style="height: 377px;" >
-					<!-- /слика на играта -->              
-                  <img src="img/<%=game.img_path %>" style="width:245px; height: 153px;">
-                    <div class="caption">
-                        <!-- /име на играта -->
-						<h3><%= game.name %></h3>
-						<!-- /цена на играта -->
-                    	<h4><%= game.price %></h4>  
-						<!-- /опис на играта -->				
-                        <p><%= game.description %></p>
-                      <!--  <p> -->
-						<!-- /да се додаде во кошничка на клик -->
-                        <asp:Button runat="server" id="btn" 
-                        class="btn btn-primary" Text="Купи"></asp:Button>  
-                          <!--  </p> -->
-                        </div>
-                    </div>
-                </div>
-                        <% } %>
-
-
-                    
-            </div> 
-			
-            
-            
-            
-        <hr>
-
+            </div> 	
 </asp:Content> 
     
