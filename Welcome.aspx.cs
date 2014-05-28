@@ -62,7 +62,7 @@ public partial class Welcome : System.Web.UI.Page
                     //new image
                     Image imageProduct = new Image();
                     imageProduct.ID = "img" + id;
-                    imageProduct.ImageUrl = img;
+                    imageProduct.ImageUrl = "img/" + img;
                     imageProduct.Width=245;
                     imageProduct.Height=153;
                     imgDiv.Controls.Add(imageProduct);
