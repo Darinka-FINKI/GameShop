@@ -1,24 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GameShop", "..\..\WebSites\GameShop\", "{81EC62C8-AADB-4345-8A90-6B09DC63ACC5}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GameShop", ".", "{81EC62C8-AADB-4345-8A90-6B09DC63ACC5}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/GameShop"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\WebSites\GameShop\"
+		Debug.AspNetCompiler.PhysicalPath = "..\GameShop\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\GameShop\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/GameShop"
-		Release.AspNetCompiler.PhysicalPath = "..\..\WebSites\GameShop\"
+		Release.AspNetCompiler.PhysicalPath = "..\GameShop\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\GameShop\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "59387"
+		VWDPort = "55852"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
