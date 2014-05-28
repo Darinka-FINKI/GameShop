@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master" CodeFile="cart.aspx.cs" Inherits="cart" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master" CodeFile="cart.aspx.cs" Inherits="cart" EnableEventValidation="false" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="head"></asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
@@ -42,7 +42,7 @@
 						
 						
 							<!-- suma na cenite na igrite -->
-							<h4 class="text-right"><p id="total">Вкупно: ---- ден.</p></h4>							
+							<h4 class="text-right"><p id="total">Вкупно: <asp:Label ID="lblVkupno" runat="server"></asp:Label> ден.</p></h4>							
 						</div>
 						<div class="col-xs-3">
 						
