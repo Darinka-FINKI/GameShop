@@ -54,6 +54,8 @@
 		</div>  
         
         <br/> 	
+
+        <asp:Label runat="server" ID="proba"></asp:Label>
     	
 
 		<!-- /carousel -->

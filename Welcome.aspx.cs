@@ -41,9 +41,7 @@ public partial class Welcome : System.Web.UI.Page
                     string id = reader["id"].ToString();
                     string price=reader["price"].ToString();
                     string description = Truncate(reader["description"].ToString(), 80);
-                                  
-                
-                
+
                    //glaven div
                     System.Web.UI.HtmlControls.HtmlGenericControl createDiv =new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
                     createDiv.ID = "createDiv"+id;
@@ -64,7 +62,7 @@ public partial class Welcome : System.Web.UI.Page
                     //new image
                     Image imageProduct = new Image();
                     imageProduct.ID = "img" + id;
-                    imageProduct.ImageUrl = "img/" + img;
+                    imageProduct.ImageUrl = img;
                     imageProduct.Width=245;
                     imageProduct.Height=153;
                     imgDiv.Controls.Add(imageProduct);
