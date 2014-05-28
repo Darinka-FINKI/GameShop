@@ -21,12 +21,15 @@ public partial class cart : System.Web.UI.Page
         Dictionary<string, int> games = (Dictionary<string, int>)Session["kosnicka"];
 
 
-        SqlCommand komanda = new SqlCommand();
+       
        // komanda.Connection = konekcija;
       //  komanda.CommandText = "Select * from game where id=@id";
 
+        int sum=0;
+
         for (int i = 0; i < games.Count(); i++)
         {
+            SqlCommand komanda = new SqlCommand();
             komanda.Connection = konekcija;
             komanda.CommandText = "Select * from game where id=@id";
             komanda.Parameters.AddWithValue("@id", games.ElementAt(i).Key);
@@ -48,6 +51,8 @@ public partial class cart : System.Web.UI.Page
                     string type = reader["game_type"].ToString();
                     int val=games.ElementAt(i).Value;
 
+                    int tmp = Convert.ToInt32(price) * val;
+                    sum += tmp;
 
                     //div row
                     System.Web.UI.HtmlControls.HtmlGenericControl createDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
@@ -124,8 +129,9 @@ public partial class cart : System.Web.UI.Page
                     //input value
 
                     TextBox tbvalue = new TextBox();
-                    tbvalue.ID = "tb" + id;
+                    tbvalue.ID = "tb."+id;
                     tbvalue.Text = val.ToString();
+                    tbvalue.TextChanged += new EventHandler(tbvalue_TextChanged);
                     tbvalue.Attributes.Add("class", "quantity form-control input-sm");
                     inputDiv.Controls.Add(tbvalue);
 
@@ -133,7 +139,8 @@ public partial class cart : System.Web.UI.Page
                     Button btn = new Button();
                     btn.ID = id;
                     btn.Text = "Избриши";
-                   // btn.Attributes.Add("class", "glyphicon glyphicon-trash");
+                    btn.Attributes.Add("class", "glyphicon glyphicon-trash");
+                    btn.CausesValidation = false;
                     btn.Click += new EventHandler(btn_Click);
                     deleteDiv.Controls.Add(btn);
 
@@ -147,6 +154,7 @@ public partial class cart : System.Web.UI.Page
 
                     createDiv.Controls.Add(bigDiv);
                     div.Controls.Add(createDiv);
+                    div.Controls.Add(new LiteralControl("<br />"));
 
                 }
 
@@ -160,10 +168,35 @@ public partial class cart : System.Web.UI.Page
                 konekcija.Close();
             }
         }
+        lblVkupno.Text = sum.ToString() + "$";
+    }
+
+    private void tbvalue_TextChanged(object sender, EventArgs e)
+    {
+        Dictionary<string, int> games = (Dictionary<string, int>)Session["kosnicka"];
+        TextBox b = (TextBox)sender;
+        string[] id = (b.ID).Split('.');
+        string i = id[id.Count() - 1];
+        if (games.ContainsKey(i))
+        {
+            games[i] = Convert.ToInt32(b.Text);
+        }
+        Session["kosnicka"] = games;
+        Response.Redirect("cart.aspx");
+
     }
     protected void btn_Click(object sender, EventArgs e)
     {
-        
+        Dictionary<string, int> games = (Dictionary<string, int>)Session["kosnicka"];
+        Button b = (Button)sender;
+        string id = b.ID;
+        if (games.ContainsKey(id))
+        {
+            games.Remove(id);
+        }
+        Session["kosnicka"] = games;
+        Response.Redirect("cart.aspx");
     }
+
 
 }

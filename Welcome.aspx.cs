@@ -15,13 +15,11 @@ public partial class Welcome : System.Web.UI.Page
     //KeyValuePair<Game, string> list = KeyValuePair<Game, string>();
     protected void Page_Load(object sender, EventArgs e)
     {
-       // if (!IsPostBack)
-       // {
             SqlConnection konekcija = new SqlConnection();
-            //konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
+            konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
 
             //marta
-            konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
+            //konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
 
             SqlCommand komanda = new SqlCommand();
             komanda.Connection = konekcija;
@@ -111,7 +109,7 @@ public partial class Welcome : System.Web.UI.Page
             {
                 konekcija.Close();
             }
-      //  }
+      
     }
 
     protected void btn_Click(object sender, EventArgs e)

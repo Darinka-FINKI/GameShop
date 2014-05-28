@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Configuration;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
@@ -23,10 +24,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         String passwordValue = password.Text;
 
         //darinka
-        //konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
+        konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
 
         //marta        
-        konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
+        //konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
 
         String q = "select * from users";
 
