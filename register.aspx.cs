@@ -18,10 +18,10 @@ public partial class register : System.Web.UI.Page
         SqlConnection konekcija = new SqlConnection();
         
         //darinka
-        //konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
+        konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
 
         //marta
-        konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
+       // konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
 
 
         SqlCommand komanda = new SqlCommand();
