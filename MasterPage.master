@@ -98,13 +98,13 @@
                     <strong class="caret"></strong></a>
 		            	<ul class="dropdown-menu">		            	
                             
-                            <li><a href="">Action</a></li>
-                            <li><a href="">Adventure</a></li>
-                            <li><a href="">FPS</a></li>
-                            <li><a href="">Strategy</a></li>
-                            <li><a href="">RPG</a></li>
-                            <li><a href="">Sports</a></li>
-                            <li><a href="">Racing</a></li>		            			            	
+                            <li><a href="gametype.aspx?type=Action">Action</a></li>
+                            <li><a href="gametype.aspx?type=Adventure">Adventure</a></li>
+                            <li><a href="gametype.aspx?type=FPS">FPS</a></li>
+                            <li><a href="gametype.aspx?type=Strategy">Strategy</a></li>
+                            <li><a href="gametype.aspx?type=RPG">RPG</a></li>
+                            <li><a href="gametype.aspx?type=Sports">Sports</a></li>
+                            <li><a href="gametype.aspx?type=Racing">Racing</a></li>		            			            	
 							
 		            	</ul>
 		          	</li>

@@ -8,12 +8,12 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-public partial class Welcome : System.Web.UI.Page
+public partial class gametype : System.Web.UI.Page
 {
     public static Dictionary<string, int> dic = new Dictionary<string, int>();
-
     protected void Page_Load(object sender, EventArgs e)
     {
+        Dictionary<string, int> dic = (Dictionary<string,int>)Session["kosnicka"];
             SqlConnection konekcija = new SqlConnection();
             konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
 
@@ -22,8 +22,10 @@ public partial class Welcome : System.Web.UI.Page
 
             SqlCommand komanda = new SqlCommand();
             komanda.Connection = konekcija;
-            komanda.CommandText = "Select * from game";
-            
+            komanda.CommandText = "Select * from game where game_type=@type";
+            komanda.Parameters.AddWithValue("@type",Request.QueryString["type"]);
+            string a = Request.QueryString["type"];
+            Console.WriteLine(a);
 
             try
             {
@@ -108,8 +110,8 @@ public partial class Welcome : System.Web.UI.Page
             {
                 konekcija.Close();
             }
-      
-    }
+        }
+    
 
     protected void btn_Click(object sender, EventArgs e)
     {
@@ -132,5 +134,6 @@ public partial class Welcome : System.Web.UI.Page
     {
         return value.Length <= maxChars ? value : value.Substring(0, maxChars) + " ...";
     }
-
 }
+
+
