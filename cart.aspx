@@ -19,7 +19,7 @@
 							<div class="col-xs-6">
 							
 								<!--redirect do welcome-->
-								<a href="welcome.aspx" class="btn btn-primary btn-sm btn-block">
+								<a href="Welcome.aspx" class="btn btn-primary btn-sm btn-block">
 									 <span class="glyphicon glyphicon-share-alt"></span>Продолжи со купување
 								</a>
 							</div>
@@ -48,9 +48,9 @@
 						
 						
 							<!-- da gi brise site igri od sesija i da izvesti oti e izvrsena simulacija na kupuvanje -->
-							<button type="submit" class="btn btn-success btn-block">
-								Купи
-							</button>
+							<asp:Button ID="btnKupi" runat="server"  Text="Купи" type="submit" class="btn btn-success btn-block" OnClick="btnKupi_Click">
+								
+							</asp:Button>
 						</div>
 					</div>
 				</div>

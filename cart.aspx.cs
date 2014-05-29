@@ -69,13 +69,13 @@ public partial class cart : System.Web.UI.Page
                             System.Web.UI.HtmlControls.HtmlGenericControl inDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
                             inDiv.ID = "in" + id;
                             inDiv.Attributes.Add("class", "col-xs-4");
-                            inDiv.Attributes.Add("style", "width:50%");
+                            inDiv.Attributes.Add("style", "width:40%");
 
                             //div price, value, button
                             System.Web.UI.HtmlControls.HtmlGenericControl bigDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
                             bigDiv.ID = "big" + id;
                             bigDiv.Attributes.Add("class", "col-xs-6");
-                            bigDiv.Attributes.Add("style", "width:30%");
+                            bigDiv.Attributes.Add("style", "width:40%");
 
                             //div price
                             System.Web.UI.HtmlControls.HtmlGenericControl priceDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
@@ -121,7 +121,8 @@ public partial class cart : System.Web.UI.Page
 
                             Label lprice = new Label();
                             lprice.ID = "lprice" + id;
-                            lprice.Text = price;
+                            lprice.Text = price+" ден.";
+                            lprice.Font.Size = 12;
                             lprice.Attributes.Add("class", "text-muted");
                             priceDiv.Controls.Add(lprice);
                             //inDiv.Controls.Add(new LiteralControl("<br />"));
@@ -138,11 +139,13 @@ public partial class cart : System.Web.UI.Page
 
                             Button btn = new Button();
                             btn.ID = id;
-                            btn.Text = "Избриши";
-                            btn.Attributes.Add("class", "glyphicon glyphicon-trash");
+                            btn.Text = "X";
+                            btn.Font.Bold = true;
+                            btn.Attributes.Add("class", "btn btn-danger btn-mini");
                             btn.CausesValidation = false;
-                            btn.Click += new EventHandler(btn_Click);
+                            btn.Click += new EventHandler(btn_Click);                            
                             deleteDiv.Controls.Add(btn);
+                            
 
 
                             createDiv.Controls.Add(imgDiv);
@@ -216,4 +219,13 @@ public partial class cart : System.Web.UI.Page
     }
 
 
+    protected void btnKupi_Click(object sender, EventArgs e)
+    {
+        Dictionary<string, int> games = new Dictionary<string, int>();
+        Session["kosnicka"] = games;
+        //alert za uspesno kupuvanje
+        String script = "$(document).ready(function(){$(\"#modal\").modal('show')})";
+        ScriptManager.RegisterStartupScript(this, typeof(Page), "UpdateMsg", script, true);
+        Response.Redirect("cart.aspx");
+    }
 }
