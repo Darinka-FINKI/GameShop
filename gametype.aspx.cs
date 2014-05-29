@@ -115,19 +115,31 @@ public partial class gametype : System.Web.UI.Page
 
     protected void btn_Click(object sender, EventArgs e)
     {
-        Button b = (Button)sender;
-        string id = b.ID;
-        if (dic.ContainsKey(id))
+        if (Session["korisnik"] != null)
         {
-            dic[id] = dic[id] + 1;
+            Button b = (Button)sender;
+            string id = b.ID;
+            if (dic.ContainsKey(id))
+            {
+                dic[id] = dic[id] + 1;
+            }
+            else
+            {
+                dic.Add(id, 1);
+            }
+
+            Session["kosnicka"] = dic;
+            Console.WriteLine(Session["kosnicka"].ToString());
         }
         else
         {
-            dic.Add(id, 1);
+
+            String script = "$(document).ready(function(){$(\"#modal\").modal('show')})";
+
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "UpdateMsg", script, true);
+
         }
-            
-        Session["kosnicka"] = dic;
-        Console.WriteLine(Session["kosnicka"].ToString());
+        
     }
 
     public string Truncate(string value, int maxChars)
