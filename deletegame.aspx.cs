@@ -24,10 +24,10 @@ public partial class deletegame : System.Web.UI.Page
         SqlConnection con = new SqlConnection();
         con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
         con.Open();
-        SqlCommand cmd = new SqlCommand("Select * from games", con);
+        SqlCommand cmd = new SqlCommand("Select * from igra", con);
         SqlDataAdapter da = new SqlDataAdapter(cmd);
         DataSet ds = new DataSet();
-        da.Fill(ds);
+        da.Fill(ds, "Igra");
         int count = ds.Tables[0].Rows.Count;
         con.Close();
         if (ds.Tables[0].Rows.Count > 0)
@@ -66,11 +66,21 @@ public partial class deletegame : System.Web.UI.Page
         TextBox bought = (TextBox)gridView.Rows[e.RowIndex].FindControl("txtb");
         TextBox num_avail = (TextBox)gridView.Rows[e.RowIndex].FindControl("txtnum");
 
-        con.Open();
-        SqlCommand cmd = new SqlCommand("update authors set name='" + name.Text + "', pic_location='" + pic_location.Text + "', game_type='" + game_type.Text + "', description='" + description.Text + "', price='" + price.Text + "', bought='" + bought.Text + "', num_avail='" + num_avail.Text + "' where id=" + id, con);
 
-        cmd.ExecuteNonQuery();
-        con.Close();
+        try
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("update igra set name='" + name.Text + "', pic_location='" + pic_location.Text + "', game_type='" + game_type.Text + "', description='" + description.Text + "', price='" + price.Text + "', bought='" + bought.Text + "', num_avail='" + num_avail.Text + "' where id=" + id, con);
+
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception err) {
+            lblmsg.Text = err.Message;
+        }
+        finally
+        {
+            con.Close();
+        }
 
         lblmsg.BackColor = Color.Blue;
         lblmsg.ForeColor = Color.White;
@@ -90,7 +100,7 @@ public partial class deletegame : System.Web.UI.Page
 
         string id = gridView.DataKeys[e.RowIndex].Values["id"].ToString();
         con.Open();
-        SqlCommand cmd = new SqlCommand("delete from games where id=" + id, con);
+        SqlCommand cmd = new SqlCommand("delete from igra where id=" + id, con);
         int result = cmd.ExecuteNonQuery();
         con.Close();
         if (result == 1)
@@ -132,7 +142,7 @@ public partial class deletegame : System.Web.UI.Page
             con.Open();
             SqlCommand cmd =
                 new SqlCommand(
-                    "insert into games(id,name,pic_location,game_type,description,price,bought,num_avail) values('" + inid.Text + "','" +
+                    "insert into igra(id,name,pic_location,game_type,description,price,bought,num_avail) values('" + inid.Text + "','" +
                     inname.Text + "','" + inlocation.Text + "','" + intype.Text + "','" + indes.Text + "','" + inprice.Text + "','" + inb.Text + "','" + innum.Text + "')", con);
             int result = cmd.ExecuteNonQuery();
             con.Close();

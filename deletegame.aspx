@@ -6,7 +6,7 @@
     <title>Gridview Add, Edit and Delete</title>
 <script type="text/javascript">
     function deleteConfirm(pubid) {
-        var result = confirm('Do you want to delete ' + pubid + ' ?');
+        var result = confirm('Do you want to delete ' + id + ' ?');
         if (result) {
             return true;
         }
@@ -19,7 +19,7 @@
 <body>
     <form id="form1" runat="server">
 <div>
-<asp:GridView ID="gridView" DataKeyNames="au_id" runat="server"
+<asp:GridView ID="gridView" DataKeyNames="id" runat="server"
         AutoGenerateColumns="false" ShowFooter="true" HeaderStyle-Font-Bold="true"
         onrowcancelingedit="gridView_RowCancelingEdit"
         onrowdeleting="gridView_RowDeleting"
@@ -30,10 +30,10 @@
 <Columns>
 <asp:TemplateField HeaderText="id">
     <ItemTemplate>
-        <asp:Label ID="txtid" runat="server" Text='<%#Eval("au_id") %>'/>
+        <asp:Label ID="txtid" runat="server" Text='<%#Eval("id") %>'/>
     </ItemTemplate>
     <EditItemTemplate>
-        <asp:Label ID="lblid" runat="server" width="40px" Text='<%#Eval("au_id") %>'/>
+        <asp:Label ID="lblid" runat="server" width="40px" Text='<%#Eval("id") %>'/>
     </EditItemTemplate>
     <FooterTemplate>
         <asp:TextBox ID="inid" width="40px" runat="server"/>
@@ -42,10 +42,10 @@
 </asp:TemplateField>
  <asp:TemplateField HeaderText="name">
       <ItemTemplate>
-         <asp:Label ID="lblname" runat="server" Text='<%#Eval("au_lname") %>'/>
+         <asp:Label ID="lblname" runat="server" Text='<%#Eval("name") %>'/>
      </ItemTemplate>
      <EditItemTemplate>
-         <asp:TextBox ID="txtname" width="70px"  runat="server" Text='<%#Eval("au_lname") %>'/>
+         <asp:TextBox ID="txtname" width="70px"  runat="server" Text='<%#Eval("name") %>'/>
      </EditItemTemplate>
      <FooterTemplate>
          <asp:TextBox ID="inname"  width="120px" runat="server"/>
@@ -54,22 +54,22 @@
  </asp:TemplateField>
  <asp:TemplateField HeaderText="pic_location">
      <ItemTemplate>
-         <asp:Label ID="lbllocaton" runat="server" Text='<%#Eval("au_fname") %>'/>
+         <asp:Label ID="lbllocation" runat="server" Text='<%#Eval("pic_location") %>'/>
      </ItemTemplate>
      <EditItemTemplate>
-         <asp:TextBox ID="txtlocaton" width="70px"  runat="server" Text='<%#Eval("au_fname") %>'/>
+         <asp:TextBox ID="txtlocation" width="70px"  runat="server" Text='<%#Eval("pic_location") %>'/>
      </EditItemTemplate>
     <FooterTemplate>
-        <asp:TextBox ID="inlocaton" width="110px"  runat="server"/>
-        <asp:RequiredFieldValidator ID="vlocaton" runat="server" ControlToValidate="inlocaton" Text="?" ValidationGroup="validaiton"/>
+        <asp:TextBox ID="inlocation" width="110px"  runat="server"/>
+        <asp:RequiredFieldValidator ID="vlocation" runat="server" ControlToValidate="inlocation" Text="?" ValidationGroup="validaiton"/>
     </FooterTemplate>
  </asp:TemplateField>
   <asp:TemplateField HeaderText="game_type">
        <ItemTemplate>
-         <asp:Label ID="lbltype" runat="server" Text='<%#Eval("phone") %>'/>
+         <asp:Label ID="lbltype" runat="server" Text='<%#Eval("game_type") %>'/>
      </ItemTemplate>
      <EditItemTemplate>
-         <asp:TextBox ID="txttype" width="50px"   runat="server" Text='<%#Eval("phone") %>'/>
+         <asp:TextBox ID="txttype" width="50px"   runat="server" Text='<%#Eval("game_type") %>'/>
      </EditItemTemplate>
     <FooterTemplate>
         <asp:TextBox ID="intype" width="60px"  runat="server"/>
@@ -78,10 +78,10 @@
  </asp:TemplateField>
    <asp:TemplateField HeaderText="description">
      <ItemTemplate>
-         <asp:Label ID="lbldes" runat="server" Text='<%#Eval("address") %>'/>
+         <asp:Label ID="lbldes" runat="server" Text='<%#Eval("description") %>'/>
      </ItemTemplate>
      <EditItemTemplate>
-         <asp:TextBox ID="txtdes" width="30px"  runat="server" Text='<%#Eval("address") %>'/>
+         <asp:TextBox ID="txtdes" width="30px"  runat="server" Text='<%#Eval("description") %>'/>
      </EditItemTemplate>
     <FooterTemplate>
         <asp:TextBox ID="indes" width="40px"   runat="server"/>
@@ -90,10 +90,10 @@
  </asp:TemplateField>
     <asp:TemplateField HeaderText="price">
      <ItemTemplate>
-         <asp:Label ID="lblprice" runat="server" Text='<%#Eval("city") %>'/>
+         <asp:Label ID="lblprice" runat="server" Text='<%#Eval("price") %>'/>
      </ItemTemplate>
     <EditItemTemplate>
-         <asp:TextBox ID="txtprice" width="30px"  runat="server" Text='<%#Eval("city") %>'/>
+         <asp:TextBox ID="txtprice" width="30px"  runat="server" Text='<%#Eval("price") %>'/>
      </EditItemTemplate>
     <FooterTemplate>
         <asp:TextBox ID="inprice" width="40px"   runat="server"/>
@@ -102,10 +102,10 @@
  </asp:TemplateField>
  <asp:TemplateField HeaderText="bought">
      <ItemTemplate>
-         <asp:Label ID="lblb" runat="server" Text='<%#Eval("state") %>'/>
+         <asp:Label ID="lblb" runat="server" Text='<%#Eval("bought") %>'/>
      </ItemTemplate>
     <EditItemTemplate>
-         <asp:TextBox ID="txtb" width="30px"  runat="server" Text='<%#Eval("state") %>'/>
+         <asp:TextBox ID="txtb" width="30px"  runat="server" Text='<%#Eval("bought") %>'/>
      </EditItemTemplate>
     <FooterTemplate>
         <asp:TextBox ID="inb" width="40px"   runat="server"/>
@@ -114,10 +114,10 @@
  </asp:TemplateField>
  <asp:TemplateField HeaderText="num_avail">
      <ItemTemplate>
-         <asp:Label ID="lblnum" runat="server" Text='<%#Eval("zip") %>'/>
+         <asp:Label ID="lblnum" runat="server" Text='<%#Eval("num_avail") %>'/>
      </ItemTemplate>
     <EditItemTemplate>
-         <asp:TextBox ID="txtnum" width="30px"  runat="server" Text='<%#Eval("zip") %>'/>
+         <asp:TextBox ID="txtnum" width="30px"  runat="server" Text='<%#Eval("num_avail") %>'/>
      </EditItemTemplate>
     <FooterTemplate>
         <asp:TextBox ID="innum" width="40px"   runat="server"/>
