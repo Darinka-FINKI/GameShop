@@ -13,12 +13,10 @@ public partial class gametype : System.Web.UI.Page
     public static Dictionary<string, int> dic = new Dictionary<string, int>();
     protected void Page_Load(object sender, EventArgs e)
     {
-        Dictionary<string, int> dic = (Dictionary<string,int>)Session["kosnicka"];
+            Dictionary<string, int> dic = (Dictionary<string,int>)Session["kosnicka"];
+
             SqlConnection konekcija = new SqlConnection();
             konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
-
-            //marta
-            //konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
 
             SqlCommand komanda = new SqlCommand();
             komanda.Connection = konekcija;
@@ -130,6 +128,7 @@ public partial class gametype : System.Web.UI.Page
 
             Session["kosnicka"] = dic;
             Console.WriteLine(Session["kosnicka"].ToString());
+            Response.Redirect("~/cart.aspx");
         }
         else
         {

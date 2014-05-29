@@ -24,15 +24,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         String usernameValue = username.Text;
         String passwordValue = password.Text;
 
-        //darinka
         konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
-
-        //marta        
-       // konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
-
-        //konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
-
-
+        
         String q = "select * from users";
 
         SqlCommand komanda = new SqlCommand(q, konekcija);
@@ -137,7 +130,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
 
         // smeni vremetraenje na cookie
-        cookie.Expires = DateTime.Now.AddDays(1);
+        cookie.Expires = DateTime.Now.AddDays(10);
         cookie["korisnik"] = username;
 
         Response.SetCookie(cookie);

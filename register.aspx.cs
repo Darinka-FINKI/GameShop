@@ -17,13 +17,8 @@ public partial class register : System.Web.UI.Page
     {        
         SqlConnection konekcija = new SqlConnection();
         
-        //darinka
         konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
-
-        //marta
-       // konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
-
-
+        
         SqlCommand komanda = new SqlCommand();
         komanda.Connection = konekcija;
         komanda.CommandText = "INSERT INTO users(first_name,last_name,username, email, password1, game_type) VALUES (@fn,@ln,@un,@em,@ps,@gt) ";

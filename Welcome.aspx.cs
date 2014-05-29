@@ -17,9 +17,6 @@ public partial class Welcome : System.Web.UI.Page
             SqlConnection konekcija = new SqlConnection();
             konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
 
-            //marta
-            //konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
-
             SqlCommand komanda = new SqlCommand();
             komanda.Connection = konekcija;
             komanda.CommandText = "Select * from game";
@@ -129,6 +126,7 @@ public partial class Welcome : System.Web.UI.Page
 
             Session["kosnicka"] = dic;
             Console.WriteLine(Session["kosnicka"].ToString());
+            Response.Redirect("~/cart.aspx");
 
         }
         else {

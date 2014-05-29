@@ -9,7 +9,11 @@ public partial class logout : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack) {
+        if (Session["korisnik"] == null) {
+            Response.Redirect("Welcome.aspx");
+        }
+
+        else if (!IsPostBack) {
 
             Session["korisnik"] = null;
 

@@ -14,7 +14,10 @@ public partial class addgame : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        String currentUser = (String)Session["korisnik"];
+        if (currentUser != "admin") {
+            Response.Redirect("~/Welcome.aspx");
+        }
     }
 
     protected void ReadPic(string name)
@@ -45,10 +48,9 @@ public partial class addgame : System.Web.UI.Page
             konekcija.Close();
         }
 
-
-
-
     }
+
+
     protected void btnRegister_Click(object sender, EventArgs e)
     {
         SqlConnection konekcija = new SqlConnection();

@@ -21,28 +21,40 @@ public partial class deletegame : System.Web.UI.Page
 
     protected void loadGames()
     {
-        SqlConnection con = new SqlConnection();
-        con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
-        con.Open();
-        SqlCommand cmd = new SqlCommand("Select * from igra", con);
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        DataSet ds = new DataSet();
-        da.Fill(ds, "Igra");
-        int count = ds.Tables[0].Rows.Count;
-        con.Close();
-        if (ds.Tables[0].Rows.Count > 0)
+        String currentUser = (String)Session["korisnik"];
+        if (currentUser != "admin")
         {
-            gridView.DataSource = ds;
-            gridView.DataBind();
+            Response.Redirect("~/Welcome.aspx");
         }
-        else
-        {
-            ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
-            gridView.DataSource = ds;
-            gridView.DataBind();
-            int columncount = gridView.Rows[0].Cells.Count;
-            lblmsg.Text = " No data found !!!";
+        else {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
+
+            con.Open();
+
+            //SqlCommand cmd = new SqlCommand("Select * from igra", con);
+            SqlCommand cmd = new SqlCommand("Select * from game", con);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Igra");
+            int count = ds.Tables[0].Rows.Count;
+            con.Close();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                gridView.DataSource = ds;
+                gridView.DataBind();
+            }
+            else
+            {
+                ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
+                gridView.DataSource = ds;
+                gridView.DataBind();
+                int columncount = gridView.Rows[0].Cells.Count;
+                lblmsg.Text = " No data found !!!";
+            }
         }
+        
     }
 
     protected void gridView_RowEditing(object sender, GridViewEditEventArgs e)
@@ -55,7 +67,11 @@ public partial class deletegame : System.Web.UI.Page
 
 
         SqlConnection con = new SqlConnection();
-        con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
+        //con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
+
+        //marta
+        con.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
+
 
         string id = gridView.DataKeys[e.RowIndex].Values["id"].ToString();
         TextBox name = (TextBox)gridView.Rows[e.RowIndex].FindControl("txtname");
@@ -70,7 +86,8 @@ public partial class deletegame : System.Web.UI.Page
         try
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("update igra set name='" + name.Text + "', pic_location='" + pic_location.Text + "', game_type='" + game_type.Text + "', description='" + description.Text + "', price='" + price.Text + "', bought='" + bought.Text + "', num_avail='" + num_avail.Text + "' where id=" + id, con);
+            //SqlCommand cmd = new SqlCommand("update igra set name='" + name.Text + "', pic_location='" + pic_location.Text + "', game_type='" + game_type.Text + "', description='" + description.Text + "', price='" + price.Text + "', bought='" + bought.Text + "', num_avail='" + num_avail.Text + "' where id=" + id, con);
+            SqlCommand cmd = new SqlCommand("update game set name='" + name.Text + "', pic_location='" + pic_location.Text + "', game_type='" + game_type.Text + "', description='" + description.Text + "', price='" + price.Text + "', bought='" + bought.Text + "', num_avail='" + num_avail.Text + "' where id=" + id, con);
 
             cmd.ExecuteNonQuery();
         }
@@ -96,11 +113,16 @@ public partial class deletegame : System.Web.UI.Page
     protected void gridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         SqlConnection con = new SqlConnection();
-        con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
+        //con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
+
+        //marta
+        con.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
 
         string id = gridView.DataKeys[e.RowIndex].Values["id"].ToString();
         con.Open();
-        SqlCommand cmd = new SqlCommand("delete from igra where id=" + id, con);
+//        SqlCommand cmd = new SqlCommand("delete from igra where id=" + id, con);
+        SqlCommand cmd = new SqlCommand("delete from game where id=" + id, con);
+
         int result = cmd.ExecuteNonQuery();
         con.Close();
         if (result == 1)
@@ -126,7 +148,11 @@ public partial class deletegame : System.Web.UI.Page
     protected void gridView_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         SqlConnection con = new SqlConnection();
-        con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
+        //con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
+
+        //marta
+        con.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
+
 
         if (e.CommandName.Equals("AddNew"))
         {
@@ -142,7 +168,9 @@ public partial class deletegame : System.Web.UI.Page
             con.Open();
             SqlCommand cmd =
                 new SqlCommand(
-                    "insert into igra(id,name,pic_location,game_type,description,price,bought,num_avail) values('" + inid.Text + "','" +
+                    //"insert into igra(id,name,pic_location,game_type,description,price,bought,num_avail) values('" + inid.Text + "','" +
+                      "insert into game(id,name,pic_location,game_type,description,price,bought,num_avail) values('" + inid.Text + "','" +
+
                     inname.Text + "','" + inlocation.Text + "','" + intype.Text + "','" + indes.Text + "','" + inprice.Text + "','" + inb.Text + "','" + innum.Text + "')", con);
             int result = cmd.ExecuteNonQuery();
             con.Close();

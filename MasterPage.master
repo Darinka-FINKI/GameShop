@@ -141,7 +141,7 @@
 		            <asp:HyperLink ID="adminLink" class="dropdown-toggle" data-toggle="dropdown" runat="server">Администратор</asp:HyperLink>
 						<ul class="dropdown-menu">
                           <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/addgame.aspx">Додади игра</asp:HyperLink></li>
-			              <li><a href="">Избриши/Измени игра</a></li>			              
+			              <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/deletegame.aspx">Избриши/Измени игра</asp:HyperLink></li>			              
 		            	</ul>
 
 		          </li>

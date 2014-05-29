@@ -20,7 +20,7 @@
     <form id="form1" runat="server">
 <div>
 <asp:GridView ID="gridView" DataKeyNames="id" runat="server"
-        AutoGenerateColumns="false" ShowFooter="true" HeaderStyle-Font-Bold="true"
+        AutoGenerateColumns="False" ShowFooter="True" HeaderStyle-Font-Bold="true"
         onrowcancelingedit="gridView_RowCancelingEdit"
         onrowdeleting="gridView_RowDeleting"
         onrowediting="gridView_RowEditing"
@@ -100,18 +100,6 @@
         <asp:RequiredFieldValidator ID="vprice" runat="server" ControlToValidate="inprice" Text="?" ValidationGroup="validaiton"/>
     </FooterTemplate>
  </asp:TemplateField>
- <asp:TemplateField HeaderText="bought">
-     <ItemTemplate>
-         <asp:Label ID="lblb" runat="server" Text='<%#Eval("bought") %>'/>
-     </ItemTemplate>
-    <EditItemTemplate>
-         <asp:TextBox ID="txtb" width="30px"  runat="server" Text='<%#Eval("bought") %>'/>
-     </EditItemTemplate>
-    <FooterTemplate>
-        <asp:TextBox ID="inb" width="40px"   runat="server"/>
-        <asp:RequiredFieldValidator ID="vb" runat="server" ControlToValidate="inb" Text="?" ValidationGroup="validaiton"/>
-    </FooterTemplate>
- </asp:TemplateField>
  <asp:TemplateField HeaderText="num_avail">
      <ItemTemplate>
          <asp:Label ID="lblnum" runat="server" Text='<%#Eval("num_avail") %>'/>
@@ -138,6 +126,8 @@
     </FooterTemplate>
  </asp:TemplateField>
  </Columns>
+
+<HeaderStyle Font-Bold="True"></HeaderStyle>
 </asp:GridView>
     </div>
 <div >
