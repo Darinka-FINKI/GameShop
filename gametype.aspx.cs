@@ -22,8 +22,7 @@ public partial class gametype : System.Web.UI.Page
             komanda.Connection = konekcija;
             komanda.CommandText = "Select * from game where game_type=@type";
             komanda.Parameters.AddWithValue("@type",Request.QueryString["type"]);
-            string a = Request.QueryString["type"];
-            Console.WriteLine(a);
+            
 
             try
             {

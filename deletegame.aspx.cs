@@ -67,10 +67,10 @@ public partial class deletegame : System.Web.UI.Page
 
 
         SqlConnection con = new SqlConnection();
-        //con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
+        con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
 
         //marta
-        con.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
+       // con.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
 
 
         string id = gridView.DataKeys[e.RowIndex].Values["id"].ToString();
@@ -113,10 +113,10 @@ public partial class deletegame : System.Web.UI.Page
     protected void gridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         SqlConnection con = new SqlConnection();
-        //con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
+        con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
 
         //marta
-        con.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
+       // con.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
 
         string id = gridView.DataKeys[e.RowIndex].Values["id"].ToString();
         con.Open();
@@ -148,10 +148,10 @@ public partial class deletegame : System.Web.UI.Page
     protected void gridView_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         SqlConnection con = new SqlConnection();
-        //con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
+        con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
 
         //marta
-        con.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
+        //con.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
 
 
         if (e.CommandName.Equals("AddNew"))

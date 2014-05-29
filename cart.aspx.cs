@@ -121,7 +121,7 @@ public partial class cart : System.Web.UI.Page
 
                             Label lprice = new Label();
                             lprice.ID = "lprice" + id;
-                            lprice.Text = price + "$";
+                            lprice.Text = price;
                             lprice.Attributes.Add("class", "text-muted");
                             priceDiv.Controls.Add(lprice);
                             //inDiv.Controls.Add(new LiteralControl("<br />"));
@@ -168,7 +168,7 @@ public partial class cart : System.Web.UI.Page
                         konekcija.Close();
                     }
                 }
-                lblVkupno.Text = sum.ToString() + "$";
+                lblVkupno.Text = sum.ToString();
             }
         
             

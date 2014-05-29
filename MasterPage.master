@@ -110,7 +110,7 @@
 		          	</li>
 		          		
 		          	
-		          	<li><a href="">Препорачани</a></li>         
+		          	<li><a href="recomended.aspx">Препорачани</a></li>         
                     
                     
                     <!-- if implemented ANGULAR JS -->
@@ -176,7 +176,7 @@
                                 class="form-control input-sm" runat="server"></asp:TextBox>
                                 
                                 <asp:TextBox ID="password" style="margin-bottom: 15px;" placeholder="Лозинка" 
-                                class="form-control input-sm" runat="server"></asp:TextBox>
+                                class="form-control input-sm" runat="server" TextMode="Password"></asp:TextBox>
 								
                                 <asp:CheckBox style="float: left; margin-right: 10px;" ID="rememberMe" runat="server"></asp:CheckBox>
 

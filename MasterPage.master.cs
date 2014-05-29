@@ -43,7 +43,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
                 if (reader["username"].Equals(usernameValue))
                 {
-                    databasePass = reader["password1"].ToString();
+                    databasePass = reader["password"].ToString();
                 }
 
             }

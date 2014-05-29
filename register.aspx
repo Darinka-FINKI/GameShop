@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master"
-    CodeFile="register.aspx.cs" Inherits="register" %>
+    CodeFile="register.aspx.cs" Inherits="register" EnableEventValidation="false"  %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="head">
 </asp:Content>

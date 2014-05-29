@@ -21,7 +21,7 @@ public partial class register : System.Web.UI.Page
         
         SqlCommand komanda = new SqlCommand();
         komanda.Connection = konekcija;
-        komanda.CommandText = "INSERT INTO users(first_name,last_name,username, email, password1, game_type) VALUES (@fn,@ln,@un,@em,@ps,@gt) ";
+        komanda.CommandText = "INSERT INTO users(first_name,last_name,username, email, password, game_type) VALUES (@fn,@ln,@un,@em,@ps,@gt) ";
         komanda.Parameters.AddWithValue("@fn", txtName.Text);
         komanda.Parameters.AddWithValue("@ln", txtLastName.Text);
         komanda.Parameters.AddWithValue("@un", txtUserName.Text);
