@@ -66,10 +66,10 @@
                     </div>
                 </div>
                 <div class="form-group" ng-class="{ 'has-error' : userForm.usernameF.$invalid && !userForm.usernameF.$pristine }">
-                    <asp:TextBox ID="txtType" class="form-control input-lg" placeholder="тип на игра"
+                    <asp:TextBox ID="txtType" class="form-control input-lg" placeholder="омилен тип на игра"
                         TabIndex="7" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtType"
-                        Display="None" ErrorMessage="Внесете тип на игра!"></asp:RequiredFieldValidator>
+                        Display="None" ErrorMessage="Внесете омилен тип на игра!"></asp:RequiredFieldValidator>
                 </div>
                 <!-- dropdown list
 

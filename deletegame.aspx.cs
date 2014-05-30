@@ -23,11 +23,13 @@ public partial class deletegame : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection();
         con.ConnectionString = ConfigurationManager.ConnectionStrings["MyCon"].ConnectionString;
-        con.Open();
-        SqlCommand cmd = new SqlCommand("Select * from games", con);
+        
+        SqlCommand cmd = new SqlCommand("Select * from game", con);
         SqlDataAdapter da = new SqlDataAdapter(cmd);
         DataSet ds = new DataSet();
-        da.Fill(ds);
+
+        con.Open();
+        da.Fill(ds, "game");
         int count = ds.Tables[0].Rows.Count;
         con.Close();
         if (ds.Tables[0].Rows.Count > 0)

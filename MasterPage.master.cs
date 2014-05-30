@@ -28,11 +28,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
         konekcija.ConnectionString = ConfigurationManager.ConnectionStrings["myCon"].ConnectionString;
 
         //marta        
-<<<<<<< HEAD
+// HEAD
        // konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
-=======
+//
         //konekcija.ConnectionString = "Data Source=dell-PC\\SQLEXPRESS;Integrated Security=True";
->>>>>>> b943e1149476d053e633d866760e8bc1967006e9
+// b943e1149476d053e633d866760e8bc1967006e9
 
         String q = "select * from users";
 

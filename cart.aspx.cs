@@ -131,6 +131,7 @@ public partial class cart : System.Web.UI.Page
                     TextBox tbvalue = new TextBox();
                     tbvalue.ID = "tb."+id;
                     tbvalue.Text = val.ToString();
+                    tbvalue.AutoPostBack = true;
                     tbvalue.TextChanged += new EventHandler(tbvalue_TextChanged);
                     tbvalue.Attributes.Add("class", "quantity form-control input-sm");
                     inputDiv.Controls.Add(tbvalue);
@@ -182,7 +183,9 @@ public partial class cart : System.Web.UI.Page
             games[i] = Convert.ToInt32(b.Text);
         }
         Session["kosnicka"] = games;
+       
         Response.Redirect("cart.aspx");
+        
 
     }
     protected void btn_Click(object sender, EventArgs e)
